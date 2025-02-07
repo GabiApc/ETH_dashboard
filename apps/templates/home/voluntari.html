@@ -1,0 +1,87 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} voluntari {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<br>
+<nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+  <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent mb-0">
+      <li class="breadcrumb-item">
+          <a href="dashboard.html">
+              <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          </a>
+      </li>
+      <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Voluntari</li>
+  </ol>
+</nav>
+<br><br>
+<h3>Listă voluntari</h3>
+<!--Search box-->
+<div class="mb-3">
+  
+  <div class="input-group" style="width:270px">
+      <span class="input-group-text" id="basic-addon1">
+        <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+      </span>
+      <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Caută voluntari" aria-label="Search">
+  </div>
+</div>
+<!--Search box-->
+
+<div class="bg-white rounded shadow p-5 mb-4 mt-4">
+
+
+<table class="table">
+      <tr >
+        <th scope="col" > #</th>
+        <th class="fw-bold"scope="col" style="padding-left: 9px;">Nume</th>
+        <th class="fw-bold"scope="col" style="padding-left: 9px;">Data nasterii</th>
+        <th class="fw-bold"scope="col"style="padding-left: 9px;">Email</th>
+        <th class="fw-bold"scope="col"style="padding-left: 9px;">Telefon</th>
+      </tr>
+   
+    <tbody>
+      
+      
+      {% for vol in volunteers %}
+
+      <tr>
+        <th scope="row">{{vol.id}}</th>
+
+        <td><a href="#" class="d-flex align-items-center">
+          <div class="d-block">
+          <span class="fw-bold">{{vol.last_name}} {{vol.first_name}}</span><div class="small text-gray">{{vol.email}}</div>
+           </div>
+          </a>
+        </td>
+        <td><span class="fw-normal">{{vol.data}}</span></td>
+        <td><span class="fw-normal d-flex align-items-center text-purple">
+          <svg class="icon icon-xxs text-purple me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd">           </path>
+          </svg> {{vol.mail}}</span></td>
+          <td><span class="fw-normal">{{vol.phone}}</span></td>
+      </tr>
+
+      {% endfor %}
+      
+    </tbody>
+
+  </table>
+  
+ 
+   
+</div>
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

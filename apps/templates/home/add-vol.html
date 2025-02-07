@@ -1,0 +1,29 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Add Volunteers {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Student </h1>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                {{form.Voluntari}}
+                <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
